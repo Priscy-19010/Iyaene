@@ -1,13 +1,29 @@
-import { useState } from 'react'
-import { BrowserRouter, Routes, Route} from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import Login from "./pages/admin/Login";
+import AdminLayout from "./components/admin/AdminLayout";
+import Dashboard from "./pages/admin/Dashboard";
+import QuoteRequests from "./pages/admin/QuoteRequests";
+import Messages from "./pages/admin/Messages";
+import Projects from "./pages/admin/Projects";
+import ProjectForm from "./pages/admin/ProjectForm";
 
-function App() {
-
+export default function App() {
   return (
-    <div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/admin/login" element={<Login />} />
 
-    </div>
-  )
+        <Route path="/admin" element={<AdminLayout />}>
+          <Route path="dashboard" element={<Dashboard />} />
+          <Route path="quote-requests" element={<QuoteRequests />} />
+          <Route path="messages" element={<Messages />} />
+          <Route path="projects" element={<Projects />} />
+          <Route path="projects/new" element={<ProjectForm />} />
+          <Route path="projects/:id/edit" element={<ProjectForm />} />
+        </Route>
+
+        <Route path="*" element={<Navigate to="/admin/login" replace />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
-
-export default App
