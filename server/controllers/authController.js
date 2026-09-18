@@ -4,7 +4,7 @@ const Admin = require('../models/Admin')
 
 exports.login = async (req, res) =>{
     try {
-        const admin = await Admin.findOne({ email: req.body.email, username: req.body.username })
+        const admin = await Admin.findOne({ email: req.body.email })
 
         if(!admin){
             return res.status(404).json({ message: 'Admin not found' })
@@ -27,7 +27,7 @@ exports.register = async (req, res) =>{
         const existingAdmin = await Admin.findOne({ email: req.body.email })
 
         if(existingAdmin){
-            return res.status(400).json({  sucess: false, message: 'Admin already exists' })
+            return res.status(400).json({ success: false, message: 'Admin already exists' })
         }
         const hashedPassword = await bycrypt.hash(req.body.password, 10)
         const admin = await Admin.create({
@@ -35,11 +35,12 @@ exports.register = async (req, res) =>{
             email: req.body.email,
             password: hashedPassword,
             phone: req.body.phone,
+            role: 'admin',
         })
 
-        return res.status(201).json({ sucess: true, message: 'Admin created successfully', admin })
+        return res.status(201).json({ success: true, message: 'Admin created successfully', admin })
 
     } catch (error) {
-        return res.status(500).json({ sucess: false, message: 'Internal server error' })
+        return res.status(500).json({ success: false, message: 'Internal server error' })
     }
 }

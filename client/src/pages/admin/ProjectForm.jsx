@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { projectService } from "../../services/projectService";
+import { CometSpinner } from "@/components/ring";
 
 export default function ProjectForm() {
   const { id } = useParams();
@@ -21,6 +22,7 @@ export default function ProjectForm() {
   const [imageFile, setImageFile] = useState(null);
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState("");
+  const [fetching, setFetching] = useState(isEdit);
 
   useEffect(() => {
     if (isEdit) {
@@ -30,6 +32,7 @@ export default function ProjectForm() {
           ...data,
           tags: Array.isArray(data.tags) ? data.tags.join(", ") : data.tags || "",
         });
+        setFetching(false);
       });
     }
   }, [id, isEdit]);
@@ -73,6 +76,14 @@ export default function ProjectForm() {
       setSaving(false);
     }
   };
+
+  if (fetching) {
+    return (
+      <div className="flex justify-center items-center h-64">
+        <CometSpinner className="w-6 h-6 text-blue-500" />
+      </div>
+    );
+  }
 
   return (
     <div className="max-w-2xl">
@@ -187,8 +198,9 @@ export default function ProjectForm() {
           <button
             type="submit"
             disabled={saving}
-            className="bg-orange-500 hover:bg-orange-600 text-white font-medium px-5 py-2.5 rounded-md disabled:opacity-60"
+            className="bg-orange-500 hover:bg-orange-600 text-white font-medium px-5 py-2.5 rounded-md disabled:opacity-60 flex items-center gap-2"
           >
+            {saving && <Ring className="w-4 h-4 text-white" />}
             {saving ? "Saving..." : "Save Project"}
           </button>
           <button

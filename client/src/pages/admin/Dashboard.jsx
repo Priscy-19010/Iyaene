@@ -4,6 +4,11 @@ import { quoteService } from "../../services/quoteService";
 import { messageService } from "../../services/messageService";
 import { projectService } from "../../services/projectService";
 import StatusBadge from "../../components/admin/StatusBadge";
+import { CometSpinner } from "@/components/ring";
+
+  function LoadingButton() {
+  return <CometSpinner className="w-6 h-6 text-blue-500" />;
+}
 
 export default function Dashboard() {
   const [stats, setStats] = useState({
@@ -54,8 +59,13 @@ export default function Dashboard() {
   }, []);
 
   if (loading) {
-    return <p className="text-gray-500">Loading...</p>;
+    return (
+      <div className="flex justify-center items-center h-64">
+        <LoadingButton />
+      </div>
+    );
   }
+
 
   return (
     <div>

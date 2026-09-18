@@ -3,6 +3,7 @@ import { quoteService } from "../../services/quoteService";
 import DataTable from "../../components/admin/DataTable";
 import StatusBadge from "../../components/admin/StatusBadge";
 import SearchFilterBar from "../../components/admin/SearchFilterBar";
+import { CometSpinner } from "@/components/ring";
 
 const columns = [
   { key: "name", label: "Name" },
@@ -31,7 +32,7 @@ export default function QuoteRequests() {
   };
 
   useEffect(() => {
-    const timeout = setTimeout(loadQuotes, 300); // debounce search
+    const timeout = setTimeout(loadQuotes, 300);
     return () => clearTimeout(timeout);
   }, [search, status]);
 
@@ -54,7 +55,9 @@ export default function QuoteRequests() {
         onStatusChange={setStatus}
       />
       {loading ? (
-        <p className="text-gray-500">Loading...</p>
+        <div className="flex justify-center items-center h-64">
+          <CometSpinner className="w-6 h-6 text-blue-500" />
+        </div>
       ) : (
         <DataTable
           columns={columns}

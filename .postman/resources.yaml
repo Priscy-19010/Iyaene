@@ -2,8 +2,6 @@
 workspace:
   id: 3a5c052b-4856-4091-ab38-5245fcf2d75b
 
-# All resources in the `postman/` folder are automatically registered in Local View.
-# Point to additional files outside the `postman/` folder to register them individually. Example:
-#localResources:
-#  collections:
-#    - ../tests/E2E Test Collection/
+localResources:
+  specs:
+    - ../C:/Users/DELL/Desktop/TASK 1/Iyaene/server/package.json

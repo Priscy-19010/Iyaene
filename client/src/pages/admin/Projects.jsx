@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { projectService } from "../../services/projectService";
 import DataTable from "../../components/admin/DataTable";
+import { CometSpinner } from "@/components/ring";
 
 const columns = [
   { key: "title", label: "Title" },
@@ -62,7 +63,9 @@ export default function Projects() {
       </div>
 
       {loading ? (
-        <p className="text-gray-500">Loading...</p>
+        <div className="flex justify-center items-center h-64">
+          <CometSpinner className="w-6 h-6 text-blue-500" />
+        </div>
       ) : (
         <DataTable
           columns={columns}

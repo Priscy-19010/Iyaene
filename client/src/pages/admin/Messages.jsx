@@ -3,6 +3,7 @@ import { messageService } from "../../services/messageService";
 import DataTable from "../../components/admin/DataTable";
 import StatusBadge from "../../components/admin/StatusBadge";
 import SearchFilterBar from "../../components/admin/SearchFilterBar";
+import { CometSpinner } from "@/components/ring";
 
 const columns = [
   { key: "name", label: "Name" },
@@ -53,7 +54,9 @@ export default function Messages() {
         onStatusChange={setStatus}
       />
       {loading ? (
-        <p className="text-gray-500">Loading...</p>
+        <div className="flex justify-center items-center h-64">
+          <CometSpinner className="w-6 h-6 text-blue-500" />
+        </div>
       ) : (
         <DataTable
           columns={columns}
