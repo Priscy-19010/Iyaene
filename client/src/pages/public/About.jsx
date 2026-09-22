@@ -42,7 +42,7 @@ export default function About() {
 
       <section className="max-w-7xl mx-auto px-4 md:px-8 py-20 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <ScrollReveal>
-          <img src="/about-story.jpg" alt="IYAENE engineers on site" className="rounded-lg w-full h-[420px] object-cover" />
+          <img src="/why-iyaene.jpg" alt="IYAENE engineers on site" className="rounded-lg w-full h-[420px] object-cover" />
         </ScrollReveal>
         <ScrollReveal delay={150}>
           <p className="text-orange-500 text-sm font-semibold mb-2">OUR STORY</p>

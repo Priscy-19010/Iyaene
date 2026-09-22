@@ -54,7 +54,7 @@ export default function Team() {
             </h1>
             <p className="text-gray-300 max-w-2xl">
               IYAENE is led by two nationally recognised professionals whose memberships,
-              fellowships and field experience reflect real technical standing — not marketing
+              fellowships and field experience reflect real technical standing, not marketing
               claims.
             </p>
           </ScrollReveal>
@@ -65,7 +65,7 @@ export default function Team() {
         {members.map((m, i) => (
           <ScrollReveal key={m.name}>
             <div className={`grid grid-cols-1 lg:grid-cols-2 gap-10 items-start ${i % 2 === 1 ? "lg:[&>*:first-child]:order-2" : ""}`}>
-              <img src={`/team-${m.initials.toLowerCase()}.jpg`} alt={m.name} className="rounded-lg w-full h-[420px] object-cover" />
+              <img src={`/team-${m.initials.toLowerCase()}.jpg`} alt={m.name} className="rounded-lg w-full h-105 object-cover" />
               <div>
                 <span className="inline-block bg-orange-100 text-orange-600 text-xs font-semibold px-3 py-1.5 rounded-full mb-4">
                   {m.credentials}
@@ -128,7 +128,7 @@ export default function Team() {
             </div>
           </ScrollReveal>
           <ScrollReveal delay={150}>
-            <img src="/gsit.jpg" alt="GSIT analysis" className="rounded-lg w-full h-[420px] object-cover" />
+            <img src="/gsit.jpg" alt="GSIT analysis" className="rounded-lg w-full h-105 object-cover" />
           </ScrollReveal>
         </div>
       </section>

@@ -231,7 +231,7 @@ export default function Home() {
               <img
                 src="/why-iyaene.jpg"
                 alt="IYAENE engineers on site"
-                className="rounded-lg w-full h-[420px] object-cover"
+                className="rounded-lg w-full h-105 object-cover"
               />
               <div className="absolute bottom-4 left-4 bg-gray-950 text-white rounded-md px-4 py-3">
                 <p className="text-orange-400 font-bold text-sm">RC 937834</p>

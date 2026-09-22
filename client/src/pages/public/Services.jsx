@@ -83,7 +83,7 @@ export default function Services() {
           <ScrollReveal key={s.number}>
             <div className={`grid grid-cols-1 lg:grid-cols-2 gap-10 items-center ${i % 2 === 1 ? "lg:[&>*:first-child]:order-2" : ""}`}>
               <div className="relative">
-                <img src={s.image} alt={s.title} className="rounded-lg w-full h-[340px] object-cover" />
+                <img src={s.image} alt={s.title} className="rounded-lg w-full h-85 object-cover" />
                 <span className="absolute top-4 left-4 bg-white text-xs font-medium px-3 py-1.5 rounded-md flex items-center gap-1.5">
                   {s.tag}
                 </span>
