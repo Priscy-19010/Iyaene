@@ -1,52 +1,33 @@
-const dns = require("dns");
-dns.setServers(["8.8.8.8", "8.8.4.4"]);
+// Must be first: loads .env and stops the process if the configuration is invalid
+const env = require('./config/env');
 
-console.log("DNS:", dns.getServers());
+const mongoose = require('mongoose');
+const connectDB = require('./config/db');
+const app = require('./app');
 
+const start = async () => {
+  try {
+    await connectDB();
+  } catch (err) {
+    console.error('Failed to connect to MongoDB:', err.message);
+    process.exit(1); // don't sit there "running" without a database
+  }
 
-const express = require("express");
-const mongoose = require("mongoose");
-const router = express.Router()
-const cors = require("cors");
-const multer = require("multer");
-const errorHandler = require('./middleware/errorHandler');
-const path = require("path");
-
-require("dotenv").config({
-  path: path.join(__dirname, ".env"),
-});
-
-const app = express();
-
-// CORS Middleware
-app.use(
-  cors({
-    origin: ["http://localhost:5173", "http://localhost:5174", "http://localhost:5175"],
-    credentials: true,
-  })
-);
-
-app.use(express.json());
-
-// Routes
-
-app.use('/api/auth', require('./routes/authRoutes'));
-app.use('/api/quote', require('./routes/quoteRoutes'));
-app.use('/api/messages', require('./routes/messageRoutes'));
-app.use('/api/projects', require('./routes/projectRoutes'));
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
-app.use(errorHandler);
-
-
-mongoose
-  .connect(process.env.MONGODB_URI)
-  .then(() => {
-    console.log("MongoDB Connected");
-
-    app.listen(process.env.PORT, () => {
-      console.log(`Server running on port ${process.env.PORT}`);
-    });
-  })
-  .catch((err) => {
-    console.error("MongoDB Connection Error:", err);
+  const server = app.listen(env.port, () => {
+    console.log(`Server running on port ${env.port} (${env.nodeEnv})`);
   });
+
+  // Finish in-flight requests and close the DB before exiting (Ctrl+C or a host restart)
+  const shutdown = (signal) => {
+    console.log(`${signal} received, shutting down...`);
+    server.close(async () => {
+      await mongoose.connection.close();
+      process.exit(0);
+    });
+    setTimeout(() => process.exit(1), 10000).unref(); // give up after 10s
+  };
+  process.on('SIGTERM', () => shutdown('SIGTERM'));
+  process.on('SIGINT', () => shutdown('SIGINT'));
+};
+
+start();

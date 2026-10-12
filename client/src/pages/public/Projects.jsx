@@ -32,7 +32,7 @@ export default function Projects() {
         <div className="absolute inset-0 bg-[url('/projects-hero.jpg')] bg-cover bg-center opacity-30" />
         <div className="relative max-w-7xl mx-auto px-4 md:px-8 py-20">
           <ScrollReveal>
-            <p className="text-orange-500 text-sm font-semibold mb-3">PROJECTS / PORTFOLIO</p>
+            <p className="text-red-800 text-sm font-semibold mb-3">PROJECTS / PORTFOLIO</p>
             <h1 className="text-3xl md:text-5xl font-bold mb-4 max-w-3xl">
               Work that stands up in the field
             </h1>
@@ -57,7 +57,7 @@ export default function Projects() {
                   key={d}
                   onClick={() => setFilter(d)}
                   className={`text-sm font-medium px-4 py-2 rounded-full ${
-                    filter === d ? "bg-blue-700 text-white" : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+                    filter === d ? "bg-blue-950 text-white" : "bg-gray-100 text-gray-600 hover:bg-gray-200"
                   }`}
                 >
                   {d}
@@ -118,7 +118,7 @@ export default function Projects() {
           <ScrollReveal delay={150}>
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-medium px-6 py-3 rounded-md w-fit"
+              className="inline-flex items-center gap-2 bg-red-800 hover:bg-red-950 text-white font-medium px-6 py-3 rounded-md w-fit"
             >
               <Mail className="w-4 h-4" /> Request references
             </Link>
@@ -138,7 +138,7 @@ export default function Projects() {
           </ScrollReveal>
           <ScrollReveal delay={150}>
             <div className="flex flex-col sm:flex-row gap-3 shrink-0">
-              <Link to="/request-a-quote" className="bg-orange-500 hover:bg-orange-600 text-white font-medium px-6 py-3 rounded-md text-center">
+              <Link to="/request-a-quote" className="bg-red-800 hover:bg-red-950 text-white font-medium px-6 py-3 rounded-md text-center">
                 Request a Quote
               </Link>
               <Link to="/contact" className="border border-gray-600 hover:border-gray-400 text-white font-medium px-6 py-3 rounded-md text-center">

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { CheckCircle2, FileText, MapPin, MessageCircle, Zap } from "lucide-react";
+import { CheckCircle2, FileText, MapPin, MessageCircle } from "lucide-react";
 import Header from "../../components/layout/Header";
 import Footer from "../../components/layout/Footer";
 import ScrollReveal from "../../components/common/ScrollReveal";
@@ -50,7 +50,7 @@ export default function Services() {
         <div className="absolute inset-0 bg-[url('/services-hero.jpg')] bg-cover bg-center opacity-30" />
         <div className="relative max-w-7xl mx-auto px-4 md:px-8 py-20">
           <ScrollReveal>
-            <p className="text-orange-500 text-sm font-semibold mb-3">OUR SERVICES</p>
+            <p className="text-red-800 text-sm font-semibold mb-3">OUR SERVICES</p>
             <h1 className="text-3xl md:text-5xl font-bold mb-4 max-w-3xl">
               Four service pillars built for complex projects
             </h1>
@@ -95,14 +95,14 @@ export default function Services() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-6">
                   {s.items.map((item) => (
                     <p key={item} className="flex items-center gap-2 text-sm text-gray-700">
-                      <CheckCircle2 className="w-4 h-4 text-orange-500 shrink-0" />
+                      <CheckCircle2 className="w-4 h-4 text-red-800 shrink-0" />
                       {item}
                     </p>
                   ))}
                 </div>
                 <Link
                   to={`/request-a-quote?service=${s.title.toLowerCase()}`}
-                  className="inline-flex items-center gap-2 bg-blue-700 hover:bg-blue-800 text-white text-sm font-medium px-5 py-2.5 rounded-md"
+                  className="inline-flex items-center gap-2 bg-blue-950 hover:bg-blue-900 text-white text-sm font-medium px-5 py-2.5 rounded-md"
                 >
                   <FileText className="w-4 h-4" /> Request {s.title} support
                 </Link>
@@ -124,7 +124,7 @@ export default function Services() {
           <ScrollReveal delay={150}>
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-medium px-6 py-3 rounded-md w-fit"
+              className="inline-flex items-center gap-2 bg-red-800 hover:bg-red-950 text-white font-medium px-6 py-3 rounded-md w-fit"
             >
               <MessageCircle className="w-4 h-4" /> Describe your project
             </Link>
@@ -137,7 +137,7 @@ export default function Services() {
         <div className="relative max-w-7xl mx-auto px-4 md:px-8 py-16 flex flex-col lg:flex-row lg:items-center justify-between gap-8">
           <ScrollReveal>
             <span className="inline-flex items-center gap-2 bg-gray-800/80 text-gray-200 text-xs px-3 py-1.5 rounded-full mb-4">
-              <Zap className="w-3.5 h-3.5" /> Response within 2 business days
+              Response within 2 business days
             </span>
             <h2 className="text-3xl md:text-4xl font-bold mb-3 max-w-lg">Let's scope your next project</h2>
             <p className="text-gray-400 max-w-lg">
@@ -147,7 +147,7 @@ export default function Services() {
           </ScrollReveal>
           <ScrollReveal delay={150}>
             <div className="flex flex-col sm:flex-row gap-3 shrink-0">
-              <Link to="/request-a-quote" className="inline-flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-medium px-6 py-3 rounded-md">
+              <Link to="/request-a-quote" className="inline-flex items-center justify-center gap-2 bg-red-800 hover:bg-red-950 text-white font-medium px-6 py-3 rounded-md">
                 <FileText className="w-4 h-4" /> Request a Quote
               </Link>
               <Link to="/contact" className="inline-flex items-center justify-center gap-2 border border-gray-600 hover:border-gray-400 text-white font-medium px-6 py-3 rounded-md">

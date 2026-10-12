@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 md:px-8 py-12 grid grid-cols-1 md:grid-cols-4 gap-8">
         <div>
           <div className="flex items-center gap-2 mb-3">
-            <div className="w-9 h-9 bg-orange-500 rounded-md flex items-center justify-center font-bold text-sm">
+            <div className="w-9 h-9 bg-red-800 rounded-md flex items-center justify-center font-bold text-sm">
               IY
             </div>
             <p className="font-bold">IYAENE</p>
@@ -34,7 +34,7 @@ export default function Footer() {
 
         <div>
           <p className="text-xs font-semibold text-gray-400 mb-3">SERVICES</p>
-          <ul className="space-y-2 text-sm text-orange-400">
+          <ul className="space-y-2 text-sm text-red-700">
             <li>Engineering</li>
             <li>Environment</li>
             <li>Transport</li>
@@ -46,16 +46,19 @@ export default function Footer() {
           <p className="text-xs font-semibold text-gray-400 mb-3">CONTACT</p>
           <ul className="space-y-3 text-sm text-gray-300">
             <li className="flex items-start gap-2">
-              <MapPin className="w-4 h-4 mt-0.5 text-orange-400 shrink-0" />
+              <MapPin className="w-4 h-4 mt-0.5 text-red-700 shrink-0" />
               #48 Old Aba Road, Port Harcourt, Rivers State, Nigeria
             </li>
             <li className="flex items-center gap-2">
-              <Mail className="w-4 h-4 text-orange-400 shrink-0" />
+              <Mail className="w-4 h-4 text-red-700 shrink-0" />
               iyaenenigerialtd@gmail.com
             </li>
             <li className="flex items-center gap-2">
-              <Clock className="w-4 h-4 text-orange-400 shrink-0" />
-              Mon – Fri · 8:00am – 5:00pm
+              <Clock className="w-4 h-4 text-red-700 shrink-0 " />
+              <div>
+                <p>Mon – Fri · 9:00am – 4:30pm</p>
+                <p>Sat · 9:00am - 1:00pm</p>
+              </div>
             </li>
           </ul>
         </div>

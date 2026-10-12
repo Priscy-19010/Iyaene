@@ -29,7 +29,7 @@ export default function Login() {
       {/* Left panel */}
       <div className="hidden md:flex w-1/2 bg-gray-950 text-white flex-col justify-center px-16">
         <div className="flex items-center gap-3 mb-8">
-          <div className="w-10 h-10 bg-orange-500 rounded-md flex items-center justify-center font-bold">
+          <div className="w-10 h-10 bg-red-800 rounded-md flex items-center justify-center font-bold">
             IY
           </div>
           <div>
@@ -99,13 +99,13 @@ export default function Login() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-blue-700 hover:bg-blue-800 text-white font-medium py-2.5 rounded-md transition-colors disabled:opacity-60"
+            className="w-full bg-blue-950 hover:bg-blue-900 text-white font-medium py-2.5 rounded-md transition-colors disabled:opacity-60"
           >
             {loading ? "Signing in..." : "Sign in"}
           </button>
         </form>
 
-        <a href="/" className="text-blue-700 text-sm mt-6 inline-block">
+        <a href="/" className="text-blue-950 text-sm mt-6 inline-block">
           ← Back to the website
         </a>
       </div>

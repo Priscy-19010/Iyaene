@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import {
   FileText, Grid3x3, MapPin, Mail, ShieldCheck, BadgeCheck,
-  Landmark, Leaf, Truck, Box, Send, Search, ClipboardList, Car, Zap
+  Landmark, Leaf, Truck, Box, Send, Search, ClipboardList, Car
 } from "lucide-react";
 import Header from "../../components/layout/Header";
 import Footer from "../../components/layout/Footer";
@@ -122,7 +122,7 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row gap-4 mb-10">
               <Link
                 to="/request-a-quote"
-                className="inline-flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-medium px-6 py-3 rounded-md"
+                className="inline-flex items-center justify-center gap-2 bg-red-800 hover:bg-red-950 text-white font-medium px-6 py-3 rounded-md"
               >
                 <FileText className="w-4 h-4" />
                 Request a Quote
@@ -159,7 +159,7 @@ export default function Home() {
               { value: "RC 937834", label: "Fully registered Nigerian company" },
             ].map((stat) => (
               <div key={stat.label}>
-                <p className="text-2xl md:text-3xl font-bold text-orange-500">{stat.value}</p>
+                <p className="text-2xl md:text-3xl font-bold text-red-800">{stat.value}</p>
                 <p className="text-xs md:text-sm text-gray-400 mt-1">{stat.label}</p>
               </div>
             ))}
@@ -170,7 +170,7 @@ export default function Home() {
       {/* What we do */}
       <section className="max-w-7xl mx-auto px-4 md:px-8 py-20">
         <ScrollReveal>
-          <p className="text-orange-500 text-sm font-semibold mb-2">WHAT WE DO</p>
+          <p className="text-red-800 text-sm font-semibold mb-2">WHAT WE DO</p>
           <h2 className="text-3xl md:text-4xl font-bold mb-4 max-w-2xl">
             Four disciplines, one accountable delivery partner
           </h2>
@@ -184,12 +184,12 @@ export default function Home() {
           {services.map((service, i) => (
             <ScrollReveal key={service.title} delay={i * 120}>
               <div className="bg-gray-50 border border-gray-100 rounded-lg p-6 h-full">
-                <div className="w-11 h-11 bg-blue-100 text-blue-700 rounded-md flex items-center justify-center mb-4">
+                <div className="w-11 h-11 bg-blue-100 text-blue-950 rounded-md flex items-center justify-center mb-4">
                   <service.icon className="w-5 h-5" />
                 </div>
                 <h3 className="font-semibold mb-2">{service.title}</h3>
-                <p className="text-sm text-gray-500 mb-4">{service.description}</p>
-                <Link to="/services" className="text-sm text-blue-700 font-medium">
+                <p className="text-sm text-gray-600 mb-4">{service.description}</p>
+                <Link to="/services" className="text-sm text-blue-950 hover:text-blue-900 font-medium">
                   Request this service →
                 </Link>
               </div>
@@ -202,7 +202,7 @@ export default function Home() {
       <section className="bg-gray-50 py-20">
         <div className="max-w-7xl mx-auto px-4 md:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <ScrollReveal>
-            <p className="text-orange-500 text-sm font-semibold mb-2">WHY IYAENE</p>
+            <p className="text-red-700 text-sm font-semibold mb-2">WHY IYAENE</p>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Local knowledge, engineering discipline
             </h2>
@@ -214,7 +214,7 @@ export default function Home() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {whyPoints.map((point) => (
                 <div key={point.title} className="flex gap-3">
-                  <div className="w-9 h-9 bg-orange-100 text-orange-600 rounded-md flex items-center justify-center shrink-0">
+                  <div className="w-9 h-9 bg-orange-100 text-red-800 rounded-md flex items-center justify-center shrink-0">
                     <point.icon className="w-4 h-4" />
                   </div>
                   <div>
@@ -234,7 +234,7 @@ export default function Home() {
                 className="rounded-lg w-full h-105 object-cover"
               />
               <div className="absolute bottom-4 left-4 bg-gray-950 text-white rounded-md px-4 py-3">
-                <p className="text-orange-400 font-bold text-sm">RC 937834</p>
+                <p className="text-red-700 font-bold text-sm">RC 937834</p>
                 <p className="text-xs text-gray-300">Registered in Nigeria with the Corporate Affairs Commission</p>
               </div>
             </div>
@@ -245,7 +245,7 @@ export default function Home() {
       {/* Leadership */}
       <section className="max-w-7xl mx-auto px-4 md:px-8 py-20">
         <ScrollReveal>
-          <p className="text-orange-500 text-sm font-semibold mb-2">LEADERSHIP</p>
+          <p className="text-red-800 text-sm font-semibold mb-2">LEADERSHIP</p>
           <h2 className="text-3xl md:text-4xl font-bold mb-4 max-w-2xl">
             Led by engineers with the credentials to back it up
           </h2>
@@ -259,11 +259,11 @@ export default function Home() {
           {team.map((member, i) => (
             <ScrollReveal key={member.name} delay={i * 150}>
               <div className="bg-gray-50 border border-gray-100 rounded-lg p-6 h-full">
-                <div className="w-12 h-12 bg-blue-700 text-white rounded-full flex items-center justify-center font-bold mb-4">
+                <div className="w-12 h-12 bg-blue-950 text-white rounded-full flex items-center justify-center font-bold mb-4">
                   {member.initials}
                 </div>
                 <h3 className="font-semibold">{member.name}</h3>
-                <p className="text-sm text-blue-700 mb-1">{member.credentials}</p>
+                <p className="text-sm text-blue-950 mb-1">{member.credentials}</p>
                 <p className="text-xs text-gray-400 font-semibold mb-3">{member.role}</p>
                 <p className="text-sm text-gray-500">{member.description}</p>
               </div>
@@ -276,7 +276,7 @@ export default function Home() {
       <section className="bg-gray-50 py-20">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <ScrollReveal>
-            <p className="text-orange-500 text-sm font-semibold mb-2">HOW WE WORK</p>
+            <p className="text-red-800 text-sm font-semibold mb-2">HOW WE WORK</p>
             <h2 className="text-3xl md:text-4xl font-bold mb-4 max-w-2xl">
               From first enquiry to mobilisation
             </h2>
@@ -291,7 +291,7 @@ export default function Home() {
               <ScrollReveal key={item.step} delay={i * 120}>
                 <div className="bg-white border border-gray-100 rounded-lg p-6 h-full relative">
                   <div className="flex items-center justify-between mb-4">
-                    <div className="w-10 h-10 bg-blue-700 text-white rounded-md flex items-center justify-center">
+                    <div className="w-10 h-10 bg-blue-950 text-white rounded-md flex items-center justify-center">
                       <item.icon className="w-4 h-4" />
                     </div>
                     <span className="text-3xl font-bold text-gray-200">{item.step}</span>
@@ -311,7 +311,6 @@ export default function Home() {
         <div className="relative max-w-7xl mx-auto px-4 md:px-8 py-16 flex flex-col lg:flex-row lg:items-center justify-between gap-8">
           <ScrollReveal>
             <span className="inline-flex items-center gap-2 bg-gray-800/80 text-gray-200 text-xs px-3 py-1.5 rounded-full mb-4">
-              <Zap className="w-3.5 h-3.5" />
               Response within 2 business days
             </span>
             <h2 className="text-3xl md:text-4xl font-bold mb-3 max-w-lg">
@@ -326,7 +325,7 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row gap-3 shrink-0">
               <Link
                 to="/request-a-quote"
-                className="inline-flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-medium px-6 py-3 rounded-md"
+                className="inline-flex items-center justify-center gap-2 bg-red-800 hover:bg-red-950 text-white font-medium px-6 py-3 rounded-md"
               >
                 <FileText className="w-4 h-4" />
                 Request a Quote

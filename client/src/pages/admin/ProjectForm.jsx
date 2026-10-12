@@ -198,7 +198,7 @@ export default function ProjectForm() {
           <button
             type="submit"
             disabled={saving}
-            className="bg-orange-500 hover:bg-orange-600 text-white font-medium px-5 py-2.5 rounded-md disabled:opacity-60 flex items-center gap-2"
+            className="bg-red-800 hover:bg-red-950 text-white font-medium px-5 py-2.5 rounded-md disabled:opacity-60 flex items-center gap-2"
           >
             {saving && <Ring className="w-4 h-4 text-white" />}
             {saving ? "Saving..." : "Save Project"}

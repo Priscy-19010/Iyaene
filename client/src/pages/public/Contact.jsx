@@ -34,7 +34,7 @@ export default function Contact() {
       <section className="bg-gray-950 text-white">
         <div className="max-w-7xl mx-auto px-4 md:px-8 py-20">
           <ScrollReveal>
-            <p className="text-orange-500 text-sm font-semibold mb-3">CONTACT</p>
+            <p className="text-red-800 text-sm font-semibold mb-3">CONTACT</p>
             <h1 className="text-3xl md:text-5xl font-bold mb-4 max-w-2xl">
               Let's talk about your project
             </h1>
@@ -51,12 +51,12 @@ export default function Contact() {
           {[
             { icon: MapPin, title: "Head office", value: "#48 Old Aba Road, Port Harcourt, Rivers State, Nigeria" },
             { icon: Mail, title: "Email us", value: "iyaenenigerialtd@gmail.com" },
-            { icon: Clock, title: "Working hours", value: "Mon – Fri · 8:00am – 5:00pm", sub: "Closed on public holidays" },
+            { icon: Clock, title: "Working hours", value: "Mon – Fri · 9:00am – 4:30pm | Sat · 9:00am – 1:00pm", sub: "Closed on public holidays" },
             { icon: Landmark, title: "Registration", value: "RC 937834", sub: "Corporate Affairs Commission" },
           ].map((c, i) => (
             <ScrollReveal key={c.title} delay={i * 100}>
               <div className="border border-gray-100 rounded-lg p-5 h-full">
-                <div className="w-10 h-10 bg-blue-100 text-blue-700 rounded-md flex items-center justify-center mb-3">
+                <div className="w-10 h-10 bg-blue-100 text-blue-950 rounded-md flex items-center justify-center mb-3">
                   <c.icon className="w-4 h-4" />
                 </div>
                 <p className="font-semibold text-sm mb-1">{c.title}</p>
@@ -69,7 +69,7 @@ export default function Contact() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
           <ScrollReveal>
-            <p className="text-orange-500 text-sm font-semibold mb-2">SEND A MESSAGE</p>
+            <p className="text-red-800 text-sm font-semibold mb-2">SEND A MESSAGE</p>
             <h2 className="text-2xl font-bold mb-2">We're here to help</h2>
             <p className="text-gray-500 mb-6">
               Fill in the form and we'll get back to you. For detailed project scopes, use the
@@ -150,7 +150,7 @@ export default function Contact() {
                   <button
                     type="submit"
                     disabled={status === "loading"}
-                    className="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-medium px-6 py-2.5 rounded-md disabled:opacity-60"
+                    className="inline-flex items-center gap-2 bg-red-800 hover:bg-red-950 text-white font-medium px-6 py-2.5 rounded-md disabled:opacity-60"
                   >
                     {status === "loading" ? <CometSpinner className="w-4 h-4 text-white" /> : <Send className="w-4 h-4" />}
                     {status === "loading" ? "Sending..." : "Send message"}
@@ -174,7 +174,8 @@ export default function Contact() {
               <p className="font-semibold mb-3">Visit the office</p>
               <p className="text-sm text-gray-300 mb-2">#48 Old Aba Road, Port Harcourt, Rivers State, Nigeria</p>
               <p className="text-sm text-gray-300 mb-2">iyaenenigerialtd@gmail.com</p>
-              <p className="text-sm text-gray-300">Mon – Fri · 8:00am – 5:00pm</p>
+              <p className="text-sm text-gray-300">Mon – Fri · 9:00am – 4:30pm</p>
+              <p className="text-sm text-gray-300">Sat · 9:00am – 1:00pm</p>
             </div>
           </ScrollReveal>
         </div>

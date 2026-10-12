@@ -1,17 +1,17 @@
-const express = require("express");
-const mongoose = require("mongoose");
-const app = express();
-// const db = require("./db");
-const cors = require("cors");
+const dns = require('dns');
+const mongoose = require('mongoose');
+const env = require('./env');
 
+mongoose.connection.on('error', (err) => console.error('MongoDB error:', err.message));
+mongoose.connection.on('disconnected', () => console.warn('MongoDB disconnected'));
 
-app.use(express.json());
+const connectDB = async () => {
+  // Only for networks whose DNS can't resolve MongoDB Atlas "mongodb+srv://" addresses.
+  // Turn on with USE_GOOGLE_DNS=true in .env.
+  if (env.useGoogleDns) dns.setServers(['8.8.8.8', '8.8.4.4']);
 
-app.use(
-  cors({
-    origin: ["http://localhost:5173","http://localhost:5174"],
-    credentials: true,
-  })
-);
+  await mongoose.connect(env.mongoUri, { serverSelectionTimeoutMS: 10000 });
+  console.log('MongoDB connected');
+};
 
-mongoose.connect (""); 
+module.exports = connectDB;

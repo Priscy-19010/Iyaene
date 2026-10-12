@@ -1,14 +1,22 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import { authService } from "../../services/authService";
 import { X } from "lucide-react";
 
 const navItems = [
   { to: "/admin/dashboard", label: "Dashboard" },
   { to: "/admin/quote-requests", label: "Quote Requests" },
   { to: "/admin/messages", label: "Messages" },
-  { to: "/admin/projects", label: "Projects" },
+  { to: "/admin/project", label: "Projects" },
 ];
 
 export default function Sidebar({ isOpen, onClose }) {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    authService.logout();
+    navigate("/admin/login");
+  };
+
   return (
     <>
       {isOpen && (
@@ -25,7 +33,7 @@ export default function Sidebar({ isOpen, onClose }) {
       >
         <div className="flex items-center justify-between gap-3 px-6 py-6 border-b border-gray-800">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-orange-500 rounded-md flex items-center justify-center font-bold">
+            <div className="w-10 h-10 bg-red-800 rounded-md flex items-center justify-center font-bold">
               IY
             </div>
             <div>
@@ -47,7 +55,7 @@ export default function Sidebar({ isOpen, onClose }) {
               className={({ isActive }) =>
                 `block px-4 py-2.5 rounded-md text-sm font-medium transition-colors ${
                   isActive
-                    ? "bg-orange-500 text-white"
+                    ? "bg-red-800 text-white"
                     : "text-gray-300 hover:bg-gray-800 hover:text-white"
                 }`
               }
@@ -56,6 +64,13 @@ export default function Sidebar({ isOpen, onClose }) {
             </NavLink>
           ))}
         </nav>
+
+        <button
+          onClick={handleLogout}
+          className="mx-3 mb-3 px-4 py-2.5 rounded-md text-sm font-medium text-left text-gray-300 hover:bg-gray-800 hover:text-white transition-colors"
+        >
+          Log out
+        </button>
 
         <div className="px-6 py-4 border-t border-gray-800 text-xs text-gray-500">
           RC 937834 · #48 Old Aba Road, Port Harcourt

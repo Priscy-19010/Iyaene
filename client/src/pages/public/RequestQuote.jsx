@@ -58,7 +58,7 @@ export default function RequestQuote() {
         <div className="absolute inset-0 bg-[url('/quote-hero.jpg')] bg-cover bg-center opacity-30" />
         <div className="relative max-w-7xl mx-auto px-4 md:px-8 py-20">
           <ScrollReveal>
-            <p className="text-orange-500 text-sm font-semibold mb-3">REQUEST A QUOTE</p>
+            <p className="text-red-800 text-sm font-semibold mb-3">REQUEST A QUOTE</p>
             <h1 className="text-3xl md:text-5xl font-bold mb-4 max-w-2xl">
               Tell us about your project
             </h1>
@@ -226,7 +226,7 @@ export default function RequestQuote() {
                 <button
                   type="submit"
                   disabled={status === "loading"}
-                  className="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-medium px-6 py-2.5 rounded-md disabled:opacity-60"
+                  className="inline-flex items-center gap-2 bg-red-800 hover:bg-red-950 text-white font-medium px-6 py-2.5 rounded-md disabled:opacity-60"
                 >
                   {status === "loading" ? <CometSpinner className="w-4 h-4 text-white" /> : <Send className="w-4 h-4" />}
                   {status === "loading" ? "Submitting..." : "Submit quote request"}
@@ -243,7 +243,7 @@ export default function RequestQuote() {
             <div className="space-y-4">
               {steps.map((s, i) => (
                 <div key={i} className="flex gap-3">
-                  <span className="w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center text-xs font-bold shrink-0">
+                  <span className="w-6 h-6 bg-red-800 rounded-full flex items-center justify-center text-xs font-bold shrink-0">
                     {i + 1}
                   </span>
                   <p className="text-sm text-gray-300">{s.label}</p>
@@ -256,14 +256,14 @@ export default function RequestQuote() {
             <p className="font-semibold mb-4">Reviewed by our leadership</p>
             <div className="space-y-3">
               <div className="flex items-center gap-3">
-                <div className="w-9 h-9 bg-blue-700 text-white rounded-full flex items-center justify-center text-xs font-bold">AO</div>
+                <div className="w-9 h-9 bg-blue-950 text-white rounded-full flex items-center justify-center text-xs font-bold">AO</div>
                 <div>
                   <p className="text-sm font-medium">Dr. Abraham Oba</p>
                   <p className="text-xs text-gray-400">Ph.D, FNSE, FNITHE, MDA</p>
                 </div>
               </div>
               <div className="flex items-center gap-3">
-                <div className="w-9 h-9 bg-blue-700 text-white rounded-full flex items-center justify-center text-xs font-bold">CA</div>
+                <div className="w-9 h-9 bg-blue-950 text-white rounded-full flex items-center justify-center text-xs font-bold">CA</div>
                 <div>
                   <p className="text-sm font-medium">Engr. Clement Atamakhai</p>
                   <p className="text-xs text-gray-400">B.Eng, MNSE</p>
@@ -278,10 +278,10 @@ export default function RequestQuote() {
             <p className="text-sm text-gray-600 mb-4">
               Reach us directly — we're happy to discuss your project before any paperwork.
             </p>
-            <a href="mailto:iyaenenigerialtd@gmail.com" className="flex items-center gap-2 text-sm text-blue-700 font-medium mb-2">
+            <a href="mailto:iyaenenigerialtd@gmail.com" className="flex items-center gap-2 text-sm text-blue-950 font-medium mb-2">
               <Mail className="w-4 h-4" /> iyaenenigerialtd@gmail.com
             </a>
-            <a href="/contact" className="flex items-center gap-2 text-sm text-orange-600 font-medium">
+            <a href="/contact" className="flex items-center gap-2 text-sm text-red-800 font-medium">
               Go to contact page <ArrowRight className="w-4 h-4" />
             </a>
           </div>

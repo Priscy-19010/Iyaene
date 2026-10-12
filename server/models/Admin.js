@@ -1,16 +1,36 @@
 const mongoose = require('mongoose');
 
 const adminSchema = new mongoose.Schema({
-    username:{type:String, required:true},
-    password:{type:String, required:true},
-    email:{type:String, required:true},
-    phone:{type:String, required:false},
-    role:{type:String,
-        enum: ['user', 'admin'],
-        default:"user",
-        required:true
-    }
-},{timestamps:true})
+    email: {
+        type: String, 
+        required: true, 
+        unique: true, 
+        lowercase: true, 
+        trim: true 
+    },
+    password: { 
+        type: String, 
+        required: true, 
+        select: false 
+    },
+    role: { 
+        type: String, 
+        enum: ['user', 'admin'], 
+        default: 'admin', 
+        required: true 
+    },
+} , 
+{
+    timestamps:true,
+    toJSON: {
+      transform: (doc, ret) => {
+        delete ret.password;
+        delete ret.__v;
+        return ret;
+      }
+    },
+}
+)
 
 const Admin = mongoose.model('Admin', adminSchema);
 

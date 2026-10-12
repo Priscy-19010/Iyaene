@@ -73,7 +73,7 @@ export default function Dashboard() {
       <p className="text-gray-500 text-sm mb-6">A live snapshot of every enquiry coming through the website.</p>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-        <div className="bg-orange-500 text-white rounded-lg p-5">
+        <div className="bg-red-800 text-white rounded-lg p-5">
           <p className="text-sm opacity-90">Quote Requests</p>
           <p className="text-3xl font-bold mt-2">{stats.newQuotes}</p>
           <p className="text-xs opacity-80 mt-1">{stats.newQuotes} awaiting first review</p>
@@ -99,7 +99,7 @@ export default function Dashboard() {
         <div className="bg-white border border-gray-200 rounded-lg p-5">
           <div className="flex justify-between items-center mb-4">
             <h2 className="font-semibold">Latest quote requests</h2>
-            <Link to="/admin/quote-requests" className="text-sm text-blue-700">View all</Link>
+            <Link to="/admin/quote-requests" className="text-sm text-blue-950">View all</Link>
           </div>
           {latestQuotes.length === 0 ? (
             <p className="text-sm text-gray-400 text-center py-8">
@@ -123,7 +123,7 @@ export default function Dashboard() {
         <div className="bg-white border border-gray-200 rounded-lg p-5">
           <div className="flex justify-between items-center mb-4">
             <h2 className="font-semibold">Latest messages</h2>
-            <Link to="/admin/messages" className="text-sm text-blue-700">View all</Link>
+            <Link to="/admin/messages" className="text-sm text-blue-950">View all</Link>
           </div>
           {latestMessages.length === 0 ? (
             <p className="text-sm text-gray-400 text-center py-8">
@@ -148,7 +148,7 @@ export default function Dashboard() {
       <div className="bg-white border border-gray-200 rounded-lg p-5">
         <h2 className="font-semibold mb-4">Quick actions</h2>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-          <Link to="/admin/projects/new" className="border border-gray-200 rounded-lg p-4 hover:bg-gray-50">
+          <Link to="/admin/project/new" className="border border-gray-200 rounded-lg p-4 hover:bg-gray-50">
             <p className="text-sm font-medium">Add a project</p>
             <p className="text-xs text-gray-400 mt-1">Publish new work to the live portfolio.</p>
           </Link>

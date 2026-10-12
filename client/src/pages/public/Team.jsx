@@ -7,16 +7,16 @@ import ScrollReveal from "../../components/common/ScrollReveal";
 const members = [
   {
     initials: "AO",
-    credentials: "PH.D, FNSE, FNITHE, MDA",
+    credentials: "BSc, MSc,Ph.D, HND, OND, MDA, FNSE, FNIHTE, ",
     name: "Dr. Abraham Oba",
     role: "Managing Director & Principal Consultant",
     bio: [
       "Dr. Abraham Oba is a versatile engineering and environmental professional whose career spans world-class construction and consulting engagements with multinational organisations. His work has taken him across highway, transportation, engineering and environmental modelling — giving IYAENE a rare breadth of technical leadership under one roof.",
       "Alongside his consulting practice he has maintained an active academic career, teaching engineering at outstanding institutions and mentoring the next generation of Nigerian engineers. That blend of theory and field experience shapes how every IYAENE project is scoped and delivered.",
-      "He is the developer of the Gauss-Seidel Interactive Technique (GSIT), an iterative analysis method applied in both pollution monitoring and traffic modelling — a home-grown tool that sits at the centre of the firm's analytical capability.",
+      "He is the developer of the Gauss-Seidel Interactive Technique (GSIT), an iterative analysis method applied in both pollution monitoring and traffic modelling — a home-grown tool that sits at the centre of the firm's analytical capability. His engineering capabilities are derived from years in construction, consulting etc.",
     ],
     expertise: ["Environmental compliance & monitoring", "Highway & transportation modelling", "Civil engineering consulting", "Academic & technical training"],
-    memberships: ["Fellow, Nigerian Society of Engineers (FNSE)", "Fellow, NITHE (FNITHE)", "Member, MDA"],
+    memberships: ["Fellow, Nigerian Society of Engineers (FNSE)", "Fellow, Nigerian Institute of Nigerian Highway and Transportaion Engineers (FNIHTE)", "Member, MDA"],
   },
   {
     initials: "CA",
@@ -48,7 +48,7 @@ export default function Team() {
         <div className="absolute inset-0 bg-[url('/team-hero.jpg')] bg-cover bg-center opacity-30" />
         <div className="relative max-w-7xl mx-auto px-4 md:px-8 py-20">
           <ScrollReveal>
-            <p className="text-orange-500 text-sm font-semibold mb-3">OUR TEAM / PARTNERS</p>
+            <p className="text-red-800 text-sm font-semibold mb-3">OUR TEAM / PARTNERS</p>
             <h1 className="text-3xl md:text-5xl font-bold mb-4 max-w-3xl">
               Engineers with the credentials to back it up
             </h1>
@@ -67,13 +67,13 @@ export default function Team() {
             <div className={`grid grid-cols-1 lg:grid-cols-2 gap-10 items-start ${i % 2 === 1 ? "lg:[&>*:first-child]:order-2" : ""}`}>
               <img src={`/team-${m.initials.toLowerCase()}.jpg`} alt={m.name} className="rounded-lg w-full h-105 object-cover" />
               <div>
-                <span className="inline-block bg-orange-100 text-orange-600 text-xs font-semibold px-3 py-1.5 rounded-full mb-4">
+                <span className="inline-block bg-orange-100 text-red-800 text-xs font-semibold px-3 py-1.5 rounded-full mb-4">
                   {m.credentials}
                 </span>
                 <h2 className="text-2xl font-bold mb-1">{m.name}</h2>
-                <p className="text-blue-700 font-medium mb-4">{m.role}</p>
+                <p className="text-blue-950 font-medium mb-4">{m.role}</p>
                 {m.bio.map((p, idx) => (
-                  <p key={idx} className="text-sm text-gray-500 mb-3">{p}</p>
+                  <p key={idx} className="text-sm text-gray-700 mb-3">{p}</p>
                 ))}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-6">
                   <div>
@@ -81,7 +81,7 @@ export default function Team() {
                     <ul className="space-y-1.5">
                       {m.expertise.map((e) => (
                         <li key={e} className="text-sm text-gray-700 flex items-start gap-2">
-                          <span className="text-orange-500 mt-0.5">✓</span> {e}
+                          <span className="text-red-800 mt-0.5">✓</span> {e}
                         </li>
                       ))}
                     </ul>
@@ -91,7 +91,7 @@ export default function Team() {
                     <ul className="space-y-1.5">
                       {m.memberships.map((e) => (
                         <li key={e} className="text-sm text-gray-700 flex items-start gap-2">
-                          <span className="text-blue-700 mt-0.5">🎓</span> {e}
+                          <span className="text-blue-950 mt-0.5">🎓</span> {e}
                         </li>
                       ))}
                     </ul>
@@ -106,9 +106,9 @@ export default function Team() {
       <section className="bg-gray-50 py-20">
         <div className="max-w-7xl mx-auto px-4 md:px-8 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
           <ScrollReveal>
-            <p className="text-orange-500 text-sm font-semibold mb-2">IN-HOUSE INNOVATION</p>
+            <p className="text-red-800 text-sm font-semibold mb-2">IN-HOUSE INNOVATION</p>
             <h2 className="text-3xl font-bold mb-4">The Gauss-Seidel Interactive Technique (GSIT)</h2>
-            <p className="text-gray-500 mb-6">
+            <p className="text-gray-700 mb-6">
               Developed by Dr. Abraham Oba, GSIT is a modelling method that has become a
               practical tool across IYAENE's work — giving clients access to analysis that
               supports better decisions before capital is committed.
@@ -116,12 +116,12 @@ export default function Team() {
             <div className="space-y-4">
               {gsitPoints.map((p) => (
                 <div key={p.title} className="flex gap-3">
-                  <div className="w-9 h-9 bg-blue-100 text-blue-700 rounded-md flex items-center justify-center shrink-0">
+                  <div className="w-9 h-9 bg-blue-100 text-blue-950 rounded-md flex items-center justify-center shrink-0">
                     <p.icon className="w-4 h-4" />
                   </div>
                   <div>
                     <p className="font-semibold text-sm">{p.title}</p>
-                    <p className="text-sm text-gray-500">{p.description}</p>
+                    <p className="text-sm text-gray-700">{p.description}</p>
                   </div>
                 </div>
               ))}
@@ -145,7 +145,7 @@ export default function Team() {
           </ScrollReveal>
           <ScrollReveal delay={150}>
             <div className="flex flex-col sm:flex-row gap-3 shrink-0">
-              <Link to="/request-a-quote" className="inline-flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-medium px-6 py-3 rounded-md">
+              <Link to="/request-a-quote" className="inline-flex items-center justify-center gap-2 bg-red-800 hover:bg-red-950 text-white font-medium px-6 py-3 rounded-md">
                 <FileText className="w-4 h-4" /> Request a Quote
               </Link>
               <Link to="/contact" className="inline-flex items-center justify-center gap-2 border border-gray-600 hover:border-gray-400 text-white font-medium px-6 py-3 rounded-md">

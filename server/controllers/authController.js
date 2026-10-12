@@ -1,46 +1,40 @@
-const bycrypt  = require('bcryptjs')
-const jwt = require('jsonwebtoken')
-const Admin = require('../models/Admin')
+const bcrypt = require('bcryptjs');
+const Admin = require('../models/Admin');
+const generateToken = require('../utils/generateToken');
 
-exports.login = async (req, res) =>{
-    try {
-        const admin = await Admin.findOne({ email: req.body.email })
+const DUMMY_HASH = bcrypt.hashSync('not-a-real-password', 10);
 
-        if(!admin){
-            return res.status(404).json({ message: 'Admin not found' })
-        }
+exports.login = async (req, res, next) => {
+  try {
+    const { email, password } = req.body ?? {};
 
-        const isPasswordValid = await bycrypt.compare(req.body.password, admin.password)
-
-        if(!isPasswordValid){
-            return res.status(401).json({ message: 'Invalid password' })
-        }
-        const token = jwt.sign({ id: admin._id }, process.env.JWT_SECRET, { expiresIn: '1h' })
-
-        return res.status(200).json({ success: true, message: 'Login successful', token, admin })
-    } catch (error) {
-        return res.status(500).json({ message: 'Internal server error' })
+    if (typeof email !== 'string' || typeof password !== 'string' || !email.trim() || !password) {
+      return res.status(400).json({ success: false, message: 'Email and password are required' });
     }
-}
-exports.register = async (req, res) =>{
-    try{
-        const existingAdmin = await Admin.findOne({ email: req.body.email })
 
-        if(existingAdmin){
-            return res.status(400).json({ success: false, message: 'Admin already exists' })
-        }
-        const hashedPassword = await bycrypt.hash(req.body.password, 10)
-        const admin = await Admin.create({
-            username: req.body.username,
-            email: req.body.email,
-            password: hashedPassword,
-            phone: req.body.phone,
-            role: 'admin',
-        })
+    const admin = await Admin.findOne({ email: email.trim() })
+      .collation({ locale: 'en', strength: 2 })
+      .select('+password');
 
-        return res.status(201).json({ success: true, message: 'Admin created successfully', admin })
+    const isPasswordValid = await bcrypt.compare(password, admin ? admin.password : DUMMY_HASH);
 
-    } catch (error) {
-        return res.status(500).json({ success: false, message: 'Internal server error' })
+    if (!admin || !isPasswordValid) {
+      return res.status(401).json({ success: false, message: 'Invalid email or password' });
     }
-}
+
+    const token = generateToken(admin._id);
+
+    return res.status(200).json({
+      success: true,
+      message: 'Login successful',
+      token,
+      admin: admin.toJSON(),
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
+exports.me = (req, res) => {
+  return res.status(200).json({ success: true, admin: req.admin });
+};

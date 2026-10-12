@@ -12,7 +12,7 @@ export default function DataTable({ columns, rows, renderActions }) {
             {columns.map((col) => (
               <div key={col.key} className="flex justify-between gap-3 text-sm">
                 <span className="text-gray-500 shrink-0">{col.label}</span>
-                <span className="text-right break-words">
+                <span className="text-right wrap-break-word">
                   {col.render ? col.render(row) : row[col.key]}
                 </span>
               </div>

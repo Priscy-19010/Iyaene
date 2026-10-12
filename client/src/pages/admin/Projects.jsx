@@ -55,8 +55,8 @@ export default function Projects() {
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-2xl font-bold">Projects</h1>
         <Link
-          to="/admin/projects/new"
-          className="bg-orange-500 hover:bg-orange-600 text-white text-sm font-medium px-4 py-2 rounded-md"
+          to="/admin/project/new"
+          className="bg-red-800 hover:bg-red-950 text-white text-sm font-medium px-4 py-2 rounded-md"
         >
           + New Project
         </Link>
@@ -72,7 +72,7 @@ export default function Projects() {
           rows={projects}
           renderActions={(row) => (
             <div className="flex gap-3">
-              <Link to={`/admin/projects/${row._id}/edit`} className="text-blue-700 text-xs font-medium">
+              <Link to={`/admin/project/${row._id}/edit`} className="text-blue-950 text-xs font-medium">
                 Edit
               </Link>
               <button onClick={() => handleDelete(row._id)} className="text-red-600 text-xs font-medium">
